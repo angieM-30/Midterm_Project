@@ -31,8 +31,8 @@ public class Example5_MouEvt_MouMotLis extends Frame {
         tfMousePositionY.setEditable(false);
         add(tfMousePositionY);
         
-        MyMouseListener listener = new MyMouseListener();
-        addMouseListener(listener);
+        MyMouseListener listener = new MyMouseListener(); 
+        addMouseListener(listener); 
         addMouseMotionListener(listener);
         
         setTitle("Mouse Event");
@@ -44,25 +44,21 @@ public class Example5_MouEvt_MouMotLis extends Frame {
         new Example5_MouEvt_MouMotLis();
     }
     
-    public abstract class MyMouseListener implements MouseListener, MouseMotionListener{
-        @Override
-        public void mouseClicked(MouseEvent evt){
+    private class MyMouseListener implements MouseListener, MouseMotionListener {
+        @Override public void mouseClicked(MouseEvent evt) { 
             tfMouseX.setText(evt.getX() + "");
             tfMouseY.setText(evt.getY() + "");
+    }
+        
+        @Override public void mousePressed(MouseEvent evt) { } 
+        @Override public void mouseReleased(MouseEvent evt) { } 
+        @Override public void mouseEntered(MouseEvent evt) { } 
+        @Override public void mouseExited(MouseEvent evt) { }
+        
+        @Override public void mouseMoved(MouseEvent evt) { 
+            tfMousePositionX.setText(evt.getX() + ""); 
+            tfMousePositionY.setText(evt.getY() + ""); 
         }
-        
-        public void mousePressed(WindowEvent evt) { }
-        public void mouseReleased(WindowEvent evt) { }
-        public void mouseEntered(WindowEvent evt) { }
-        public void mouseExited(WindowEvent evt) { }
-        
-        @Override
-        public void mouseMoved(MouseEvent evt){
-            tfMousePositionX.setText(evt.getX() + "");
-            tfMousePositionY.setText(evt.getY() + "");
-        }
-        
-        @Override public void mouseDragged(MouseEvent evt){ }
+        @Override public void mouseDragged(MouseEvent evt) { }
     }
 }
-
